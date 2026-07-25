@@ -1,0 +1,212 @@
+:root {
+    --bg-color: #0f172a;
+    --sidebar-bg: #1e293b;
+    --text-color: #f1f5f9;
+    --accent-color: #38bdf8;
+    --grid-line: #475569;
+    --btn-hover: #0ea5e9;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    height: 100vh;
+    overflow: hidden;
+}
+
+#app {
+    display: flex;
+    height: 100%;
+}
+
+#controls {
+    width: 320px;
+    background-color: var(--sidebar-bg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-right: 1px solid var(--grid-line);
+    overflow-y: auto;
+}
+
+h1 {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+}
+
+h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+    margin-bottom: 8px;
+}
+
+.blurb {
+    font-size: 0.78rem;
+    line-height: 1.4;
+    color: #94a3b8;
+}
+
+.blurb strong {
+    color: var(--accent-color);
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.3);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(71, 85, 105, 0.2);
+}
+
+.button-row {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+button {
+    flex: 1;
+    background-color: #334155;
+    color: white;
+    border: none;
+    padding: 7px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.2s;
+    min-width: 60px;
+}
+
+button.active {
+    background-color: var(--accent-color);
+    color: #0f172a;
+    font-weight: 600;
+}
+
+button:hover:not(:disabled) {
+    background-color: var(--btn-hover);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    gap: 4px;
+}
+
+label.checkbox-label {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+}
+
+label.checkbox-label input {
+    width: auto;
+}
+
+input[type="number"], select {
+    background-color: #0f172a;
+    border: 1px solid var(--grid-line);
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent-color);
+}
+
+.readout {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    white-space: pre-wrap;
+}
+
+#diagnostics {
+    font-family: monospace;
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: #cbd5e1;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.control-list {
+    list-style: none;
+    font-size: 0.78rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    color: #94a3b8;
+}
+
+.control-list li strong {
+    color: var(--accent-color);
+}
+
+#viewport-container {
+    flex: 1;
+    position: relative;
+    background-color: #020617;
+    cursor: grab;
+}
+
+#viewport-container:active {
+    cursor: grabbing;
+}
+
+#viewport {
+    width: 100%;
+    height: 100%;
+}
+
+#status-bar {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid var(--grid-line);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-family: monospace;
+    font-size: 0.78rem;
+    color: var(--accent-color);
+    pointer-events: none;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--sidebar-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--grid-line);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}

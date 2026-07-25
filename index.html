@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hat Tiling — Fractal Boundary Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <aside id="controls">
+            <h1>Fractal Boundary Explorer</h1>
+            <p class="blurb">
+                The hat-tiling grid is built by growing one huge recursively-substituted
+                "supertile" to a given <strong>level</strong>, then cropping it with a plain
+                axis-aligned box. Supertiles have self-similar, non-convex (notched)
+                outlines — so whenever the crop edge lands in a notch instead of the solid
+                interior, you get a jagged, fractal-looking "missing tile" region. This tool
+                exposes that mechanism directly so you can find and play with it.
+            </p>
+
+            <section class="control-group">
+                <h3>Controls</h3>
+                <ul class="control-list">
+                    <li><strong>Drag:</strong> Pan view</li>
+                    <li><strong>Scroll:</strong> Zoom in/out</li>
+                    <li><strong>Fit button:</strong> reset pan/zoom to crop window</li>
+                </ul>
+                <div class="button-row">
+                    <button id="btn-fit">Fit view</button>
+                </div>
+            </section>
+
+            <section class="control-group">
+                <h3>Level</h3>
+                <div class="button-row" id="level-buttons"></div>
+                <div class="readout" id="level-readout">—</div>
+            </section>
+
+            <section class="control-group">
+                <h3>Crop Window (tile units)</h3>
+                <label>
+                    Width: <input type="range" id="input-width" min="4" max="4000" value="1194">
+                    <input type="number" id="input-width-num" min="1" value="1194">
+                </label>
+                <label>
+                    Height: <input type="range" id="input-height" min="4" max="4000" value="1194">
+                    <input type="number" id="input-height-num" min="1" value="1194">
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="input-lock-aspect" checked> Lock width = height
+                </label>
+                <div class="button-row">
+                    <button id="btn-jump-edge">Jump to this level's edge</button>
+                </div>
+            </section>
+
+            <section class="control-group">
+                <h3>Crop Center Offset (tile units)</h3>
+                <label>
+                    X: <input type="range" id="input-cx" min="-2000" max="2000" value="0">
+                    <input type="number" id="input-cx-num" value="0">
+                </label>
+                <label>
+                    Y: <input type="range" id="input-cy" min="-2000" max="2000" value="0">
+                    <input type="number" id="input-cy-num" value="0">
+                </label>
+                <div class="button-row">
+                    <button id="btn-center-reset">Center = origin</button>
+                </div>
+            </section>
+
+            <section class="control-group">
+                <h3>Animate</h3>
+                <div class="button-row">
+                    <button id="btn-play">Play sweep</button>
+                    <button id="btn-pause" disabled>Pause</button>
+                </div>
+                <label>
+                    Sweep min: <input type="number" id="input-sweep-min" value="600">
+                </label>
+                <label>
+                    Sweep max: <input type="number" id="input-sweep-max" value="1200">
+                </label>
+                <label>
+                    Step / tick: <input type="range" id="input-sweep-step" min="1" max="40" value="6">
+                    <span id="sweep-step-value">6</span>
+                </label>
+                <label>
+                    Tick (ms): <input type="range" id="input-sweep-speed" min="20" max="500" value="80">
+                    <span id="sweep-speed-value">80ms</span>
+                </label>
+            </section>
+
+            <section class="control-group">
+                <h3>Rendering</h3>
+                <label>
+                    Color mode:
+                    <select id="select-color-mode">
+                        <option value="lineage">Lineage (recursion branch)</option>
+                        <option value="radial">Radial gradient (distance from center)</option>
+                        <option value="solid">Solid</option>
+                    </select>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="input-fast-mode"> Fast mode (dots instead of polygons)
+                </label>
+            </section>
+
+            <section class="control-group">
+                <h3>Diagnostics</h3>
+                <pre id="diagnostics">—</pre>
+            </section>
+        </aside>
+
+        <main id="viewport-container">
+            <canvas id="viewport"></canvas>
+            <div id="status-bar">Building...</div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
