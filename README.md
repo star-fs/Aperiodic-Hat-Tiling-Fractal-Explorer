@@ -162,4 +162,3 @@ logic — is absent for sizes comfortably below that level's edge.
   equally solid. Coverage well under 100% means the crop is clipping
   through a notch somewhere; near 100% means it's sitting cleanly in
   the interior.
-# Aperiodic-Hat-Tiling-Fractal-Explorer
