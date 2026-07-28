@@ -1,8 +1,20 @@
 # Hat Tiling — Fractal Boundary Explorer
 
-A standalone tool for finding and playing with a fractal-looking artifact
+A standalone tool for finding and playing with a fractal-like artifact
 that shows up in the main Game of Life app's aperiodic "hat" grid at
 certain width/height values.
+
+(Claude says:)
+At certain width/height values, cropping reveals a large, jagged,
+self-similar region with no tiles fit in — visually reminiscent of a
+Julia or Mandelbrot set boundary. That's not a bug in the crop logic; it's
+an inherent property of the supertile's shape, and this tool exists to
+let you find, measure, and play with it directly rather than stumbling
+onto it by trial and error on specific width/height numbers.
+
+## Playing it
+
+https://star-fs.github.io/Aperiodic-Hat-Tiling-Fractal-Explorer/
 
 ## Running it
 
