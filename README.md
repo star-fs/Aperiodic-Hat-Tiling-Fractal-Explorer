@@ -1,6 +1,6 @@
 # Hat Tiling — Fractal Boundary Explorer
 
-![App Screenshot](<"Screenshot from 2026-07-27 21-33-16.png">)
+![App Screenshot](<Screenshot from 2026-07-27 21-33-16.png>)
 
 A standalone tool for finding and playing with a fractal-like artifact
 that shows up in the main Game of Life app's aperiodic "hat" grid at
